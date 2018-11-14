@@ -10,6 +10,8 @@ class Product < ActiveRecord::Base
 end
 
 get '/' do
+	# с помощью ActiveRecord получаем все записи из таблицы
+	@products = Product.all
 	erb :index			
 end
 
