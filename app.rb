@@ -52,5 +52,6 @@ return arr
 end
 
 post '/place_order' do
-  "Hello World"
+  @order = Order.create params[:order]
+  erb :order_placed
 end
