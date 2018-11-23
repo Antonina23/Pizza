@@ -9,6 +9,9 @@ set :database, "sqlite3:pizza.db"
 class Product < ActiveRecord::Base
 end
 
+class Order < ActiveRecord::Base
+end
+
 get '/' do
 	# с помощью ActiveRecord получаем все записи из таблицы
 	@products = Product.all
@@ -46,4 +49,8 @@ arr = []
 	end
 
 return arr
+end
+
+post '/place_order' do
+  "Hello World"
 end
