@@ -22,6 +22,10 @@ get '/about' do
 	erb :about			
 end
 
+get '/admin' do
+	erb "hello"
+end
+
 post '/cart' do
 	@orders_input = params[:orders_input]
 	@items = parse_orders_input @orders_input
