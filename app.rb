@@ -61,5 +61,11 @@ end
 
 post '/place_order' do
   @order = Order.create params[:order]
+
+  if @order.save
   erb :order_placed
+else
+	@error = @order.errors.full_messages.first
+	erb "Error"
+end
 end
