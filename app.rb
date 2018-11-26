@@ -10,6 +10,10 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
+	validates :orders_input, presence: true
+  	validates :name, presence: true
+  	validates :phone, presence: true
+	validates :address, presence: true
 end
 
 get '/' do
@@ -68,8 +72,8 @@ post '/place_order' do
 
   if @order.save
   erb :order_placed
-else
+	else
 	@error = @order.errors.full_messages.first
 	erb "Error"
-end
+	end
 end
