@@ -22,10 +22,6 @@ get '/about' do
 	erb :about			
 end
 
-get '/admin' do
-	erb "hello"
-end
-
 post '/cart' do
 	@orders_input = params[:orders_input]
 	@items = parse_orders_input @orders_input
@@ -38,7 +34,6 @@ post '/cart' do
     # id, cnt
     item[0] = Product.find(item[0])
 	end
-
 
 	erb :cart
 end
@@ -57,6 +52,11 @@ arr = []
 	end
 
 return arr
+end
+
+get '/admin' do
+	@ord = Order.all
+	erb :orders_list
 end
 
 post '/place_order' do
